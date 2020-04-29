@@ -13,5 +13,5 @@ while(0 or 1):
     try:
         num = int(input())
         print(table[num])
-    except EOFError:
+    except Exception:
         break

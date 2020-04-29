@@ -33,5 +33,5 @@ while(0 or 1):
             print('The Fibonacci number for 0 is 0')
         else:
             print('The Fibonacci number for %d is'%num,table[num-1])
-    except EOFError:
+    except Exception:#EOFError:
         break

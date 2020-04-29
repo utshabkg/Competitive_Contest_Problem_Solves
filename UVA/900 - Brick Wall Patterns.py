@@ -15,5 +15,5 @@ while(0 or 1):
             break
         else:
             print(table[num])
-    except EOFError:
+    except Exception: #EOFError:
         break

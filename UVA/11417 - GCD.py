@@ -11,5 +11,5 @@ while(0 or 1):
             for j in range(i+1, num+1,1):
                 G = G + math.gcd(i,j)
         print(G)
-    except EOFError:
+    except Exception: #EOFError:
         break
