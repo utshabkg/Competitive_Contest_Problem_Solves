@@ -5,7 +5,14 @@ i=lambda:map(int,input().split())
 while T >0:
     n,k=i()
     l = list(i())
-    if k%2!=0:
-        
-        if "".join(l)=="".join(reversed(str(l))):
-            print(*l)
+    s=list(set(l))
+    if(len(s)>k):
+        print(-1)
+    else:
+        s.extend([l[0]]*(k-len(s)))
+        # print(s)
+        s=s*n
+        # print(s)
+        print(n*k)
+        print(*s)
+    T -= 1
