@@ -14,6 +14,11 @@ for i in range(x):
 	l = list(s)
 
 #matrix input
+
+n=int(input())
+x=[list(map(int,input().split()))for i in range(n)]
+
+OR
 matrix = []    
 for i in range(5):          # A for loop for row entries 
     a =[] 

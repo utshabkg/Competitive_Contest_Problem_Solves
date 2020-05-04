@@ -1,3 +1,5 @@
+#solved, but not accoring to ans somewhere
+
 i=lambda:map(int,input().split())
 
 n = int(input())

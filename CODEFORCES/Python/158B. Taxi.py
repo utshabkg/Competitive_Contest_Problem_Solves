@@ -1,3 +1,5 @@
+#not solved yet
+
 x=int(input())
 a = list(map(int, input().split()))
 l = sorted(a)
