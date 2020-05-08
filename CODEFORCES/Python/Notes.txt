@@ -1,7 +1,7 @@
 #multiple int & line of int
 inp=lambda:map(int,input().split())
-n,k=inp()
-l=list(inp())
+n,k = inp()
+l = list(inp())
 
 OR
 for i in range(int(input())):
