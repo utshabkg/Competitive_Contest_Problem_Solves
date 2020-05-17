@@ -1,8 +1,10 @@
 #multiple int & line of int
 inp=lambda:map(int,input().split())
-n,k = inp()
 t = int(input())
-l = list(inp())
+for _ in range(t):
+    n,k = inp()
+    
+    l = list(inp())
 
 OR
 for i in range(int(input())):
