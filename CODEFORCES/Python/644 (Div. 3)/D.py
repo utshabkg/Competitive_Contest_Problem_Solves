@@ -11,7 +11,8 @@ def factor(n, k):
                 if i<=k:
                     s.append(i) 
             else :
-                s.append(i)
+                if i <=k:
+                    s.append(i)
                 if n//i <=k:
                     s.append(n//i)
         i = i + 1
@@ -34,3 +35,4 @@ for _ in range(t):
         print(n//k)
     else:
         print(n//factor(n,k))
+        # print(factor(n, k))
