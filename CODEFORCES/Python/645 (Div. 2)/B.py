@@ -6,31 +6,40 @@ for _ in range(t):
     
     l = list(inp())
     l = sorted(l)
-    pre = 1;count = pre;i=0;res = 0
+    l.insert(0,0)
+    pre = 1;count = pre;res = 0
+    # i=0
 
-    while i<len(l):
-        if len(l)==0:
+    for i in range(n, 0, -1):
+        if l[i]<=i:
+            pre += i
             break
 
-        if pre+res>=l[i]:
-            if res==0:
-                pre += l.count(l[i])
-                l = [x for x in l if x != l[i]]
+    print(pre)
 
-            else:
-                pre += res + 1
-                l = l[i+1:]
-                res = 0
-                i=0
-            count = pre
+    # while i<len(l):
+    #     if len(l)==0:
+    #         break
+
+    #     if pre+res>=l[i]:
+    #         if res==0:
+    #             pre += l.count(l[i])
+    #             l = l[l.count(l[i]):]
+
+    #         else:
+    #             pre += res + 1
+    #             l = l[i+1:]
+    #             res = 0
+    #             i=0
+    #         count = pre
         
-        else:
-            res += 1
-            i+=1
-        # print(l)
+    #     else:
+    #         res += 1
+    #         i+=1
+    #     # print(l)
         
     
-    print(count)
+    # print(count)
 
 # l = [0, 1, 2, 3, 4, 5]
 # print(l[-3:])
