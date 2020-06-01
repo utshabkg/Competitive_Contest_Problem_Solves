@@ -10,17 +10,18 @@ import bisect            #c++ upperbound
 import math
 import heapq
 i_m=9223372036854775807
-def modinv(n,p):
-    return pow(n,p-2,p)
-def cin():
-    return map(int,sin().split())
-def lin():                           #takes array as input
-    return list(map(int,sin().split()))
-def sin():
-    return input()
 def inin():
     return int(input())
+def stin():
+    return input()
+def spin():
+    return map(int,stin().split())
+def lin():                           #takes array as input
+    return list(map(int,stin().split()))
 #######################################
+def modinv(n,p):
+    return pow(n,p-2,p)
+
 def GCD(x, y): 
     x=abs(x)
     y=abs(y)
