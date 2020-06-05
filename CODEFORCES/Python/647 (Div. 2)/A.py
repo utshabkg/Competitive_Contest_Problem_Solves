@@ -73,56 +73,26 @@ def dfs(n,d,v,c):
 """*******************************************************"""
 for _ in range(inin()):
     a, b = spin()
-
-    c = 0;flag = 0
+    c = 0
 
     if a==b:
         print(0)
-    elif a%2!=0 and b%2!=0:
-        print(-1)
     elif max(a,b)%min(a,b)!=0:
         print(-1)
     else:
         q = max(a,b)//min(a,b)
-        p = math.log10(q) // math.log10(2)
-        eight = p//3;p=p%3
-        four = p//2;p=p%2
-        two = p//1
+        while q%8==0:
+            c+=1
+            q = q//8
+        while q%4==0:
+            c+=1
+            q = q//4
+        while q%2==0:
+            c+=1
+            q = q//2
 
-        # if a>b:
-        #     while True:
-        #         if a%8==0:
-        #             a=a//8
-        #             c+=1
-        #         elif a%4==0:
-        #             a=a//4
-        #             c+=1
-        #         elif a%2==0:
-        #             a=a//2
-        #             c+=1
-        #         if a==b:
-        #             break
-        #         # if a<b:
-        #         #     print(-1)
-        #         #     flag = 1
-        #         #     break
-        # else:
-        #     while True:
-        #         if b%8==0:
-        #             b=b//8
-        #             c+=1
-        #         elif b%4==0:
-        #             b=b//4
-        #             c+=1
-        #         elif b%2==0:
-        #             b=b//2
-        #             c+=1
-        #         if a==b:
-        #             break
-        #         # if a>b:
-        #         #     print(-1)
-        #         #     flag = 1
-        #         #     break
-        print(int(eight + four + two))
+        if q>1:
+            c = -1
+        print(c)
 
 # print(1100611139403776/1001)
