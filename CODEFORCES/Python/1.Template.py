@@ -22,7 +22,7 @@ def matrix(n):
     #matrix input
     return [list(map(int,input().split()))for i in range(n)]
 
-#######################################
+################################################
 def count2Dmatrix(i,list):
     return sum(c.count(i) for c in list)
 
