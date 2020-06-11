@@ -18,6 +18,10 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
+def matrix(n):
+    #matrix input
+    return [list(map(int,input().split()))for i in range(n)]
+
 #######################################
 def modinv(n,p):
     return pow(n,p-2,p)
