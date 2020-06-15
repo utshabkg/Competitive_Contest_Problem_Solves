@@ -1,5 +1,4 @@
 from __future__ import division, print_function
-from sympy import symbols, Eq, solve
 # import threading
 # threading.stack_size(2**27)
 # import sys
@@ -19,7 +18,14 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
-#######################################
+def matrix(n):
+    #matrix input
+    return [list(map(int,input().split()))for i in range(n)]
+
+################################################
+def count2Dmatrix(i,list):
+    return sum(c.count(i) for c in list)
+
 def modinv(n,p):
     return pow(n,p-2,p)
 
@@ -69,45 +75,35 @@ def dfs(n,d,v,c):
             j=max(j,f)
             # print(f)
     return j
-def gcd(x ,y):
-    while(y):
-        t = x % y
-        x = y
-        y = t
-    
-    return x
 # d = {}
  
 """*******************************************************"""
+for _ in range(inin()):
+    n, m = spin()
+    l = matrix(n)
 
-# If you choose one of the negative doors, 
-# it will take you some time ti to get back to the same spot, 
-# and because there is no memory, you are back to needing an expected E minutes to escape again
+    row = []; col = []; c = 0
 
-# E = 1/3 * (3 + (6 + E) + (9+E))
+    for i in range(n):
+        for j in range(m):
+            if l[i][j] == 1:
+                row.append(i)
+                col.append(j)
+    # print(row, col)
 
-for j in range(inin()):
-    n = inin()
-    l = lin()
+    for i in range(n):
+        if row.count(i)==0:
+            for j in range(m):
+                if row.count(i)==0 and col.count(j)==0:
+                    if l[i][j]==0:
+                        c += 1
+                        row.append(i)
+                        col.append(j)
 
-    p = 1/n
-    exp = 0
-    E = symbols('E')
-    for i in l:
-        if i>0:
-            exp += p*i
-        else:
-            exp += p*(abs(i)+E)
+                # print(i, j, c)
 
-        eq = Eq(E-exp, 0)
-    sol = solve(eq)
-    if len(sol)==0 or sol[0] == float("+inf"):
-        print("Case %d: inf" % (j+1))
+    if c%2==0:
+        print("Vivek")
     else:
-        from fractions import Fraction
-        print("Case %d: "%(j+1), end='')
-        if Fraction(str(sol[0]))-math.fabs(Fraction(str(sol[0])))==0:
-            print(Fraction(str(sol[0])), end='')
-            print("/1")
-        else:
-            print(Fraction(str(sol[0])))
+        print("Ashish")
+
