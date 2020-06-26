@@ -78,19 +78,25 @@ def dfs(n,d,v,c):
 # d = {}
  
 """*******************************************************"""
-for _ in range(inin()):
-    a, b , c = spin()
 
-    if a>=c:
-        ans1 = -1
-    else:
-        ans1 = 1
-    if c/b>=a:
-        ans2 = -1
-    else:
-        ans2 = b
+def process():
+    res, cur = 0, 0
+    s = stin()
     
-    print(ans1, ans2)
+    for j in range(0, len(s), 1):
+        if s[j]=="+":
+            cur += 1
+        else:
+            cur -= 1
+        if cur<0:
+            res += j + 1
+            cur = 0
+    # print(i, cur, res)
     
-    
+    print(res + len(s))
+
+for _ in range(inin()):
+    process()
+
+
     
