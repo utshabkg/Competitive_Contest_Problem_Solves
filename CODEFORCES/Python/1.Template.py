@@ -24,16 +24,15 @@ def matrix(n):
 
 ################################################
 def calculate_sum(a, N): #sum of a to N
-  
     # Number of multiples 
     m = N / a 
-  
     # sum of first m natural numbers 
     sum = m * (m + 1) / 2
-  
     # sum of multiples 
     ans = a * sum
     return ans
+def series(N):
+    return (N*(N+1))//2
 
 def count2Dmatrix(i,list):
     return sum(c.count(i) for c in list)
