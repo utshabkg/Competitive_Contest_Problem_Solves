@@ -23,6 +23,18 @@ def matrix(n):
     return [list(map(int,input().split()))for i in range(n)]
 
 ################################################
+def calculate_sum(a, N): #sum of a to N
+  
+    # Number of multiples 
+    m = N / a 
+  
+    # sum of first m natural numbers 
+    sum = m * (m + 1) / 2
+  
+    # sum of multiples 
+    ans = a * sum
+    return ans
+
 def count2Dmatrix(i,list):
     return sum(c.count(i) for c in list)
 
