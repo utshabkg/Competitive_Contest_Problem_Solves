@@ -58,6 +58,11 @@ def Divisors(n) :
                 l.append(i)
                 l.append(n//i)
     return l
+def isprime(n):
+    for i in range(2, int(math.sqrt(n))+1):
+        if n%i==0:
+            return False
+    return True
 prime=[]
 def SieveOfEratosthenes(n): 
     global prime
