@@ -21,6 +21,13 @@ from sys import stdin,stdout
 for data in stdin:
     data = int(data.rstrip('\n'))
     
+OR
+
+while True:
+    try:
+        n = input()
+    except EOFError:
+        break
 
 #matrix input
 
