@@ -23,6 +23,9 @@ def matrix(n):
     return [list(map(int,input().split()))for i in range(n)]
 
 ################################################
+def string2intlist(s):
+    return list(map(int, s))
+
 def calculate_sum(a, N): #sum of a to N
     # Number of multiples 
     m = N / a 
