@@ -18,7 +18,14 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
-#######################################
+def matrix(n):
+    #matrix input
+    return [list(map(int,input().split()))for i in range(n)]
+
+################################################
+def count2Dmatrix(i,list):
+    return sum(c.count(i) for c in list)
+
 def modinv(n,p):
     return pow(n,p-2,p)
 
@@ -71,21 +78,42 @@ def dfs(n,d,v,c):
 # d = {}
  
 """*******************************************************"""
+for _ in range(inin()):
+    n, k = spin()
+    s = list(stin())
 
-t = inin()
-for _ in range(t):
-    h,c,t = spin()
-    count = 0;i = 0
-    d = abs(h-t)
-    final = h
-
-    while i>=0:
-        if final==t:
-            print(i)
-            break
-        else:
-            if i%2!=0:
-                final -= c
+    # c = 0; temp = 0; t = 0; i = 0
+    l = []; p = -1
+    for i in range(n):
+        if s[i]=='1':
+            if p==-1 or i>p+k:
+                p = i
             else:
-                final += h
-            i+=1
+                l.pop()
+                p = i
+        else:
+            if i==0 or i>p+k:
+                l.append(i)
+                p = i
+
+    # while i<n:
+    #     if s[i]=='1':
+    #         temp = 0
+    #         i = i+k
+    #     else:
+    #         if i-k<0:
+    #             if (s[i:i+k+1].count('1')==0 and s[0:i].count('1')==0):
+    #                 s[i]='1'
+    #                 temp = 0
+    #                 c += 1
+    #             i = i+k
+    #                 # continue
+    #         else:
+    #             if (s[i:i+k+1].count('1')==0 and s[i-k:i].count('1')==0):
+    #                 s[i]='1'
+    #                 temp = 0
+    #                 c += 1
+    #             i = i+k
+
+        
+    print(len(l))

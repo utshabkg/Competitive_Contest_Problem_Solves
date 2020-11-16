@@ -18,7 +18,28 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
-#######################################
+def matrix(n):
+    #matrix input
+    return [list(map(int,input().split()))for i in range(n)]
+
+################################################
+def string2intlist(s):
+    return list(map(int, s))
+
+def calculate_sum(a, N): #sum of a to N
+    # Number of multiples 
+    m = N / a 
+    # sum of first m natural numbers 
+    sum = m * (m + 1) / 2
+    # sum of multiples 
+    ans = a * sum
+    return ans
+def series(N):
+    return (N*(N+1))//2
+
+def count2Dmatrix(i,list):
+    return sum(c.count(i) for c in list)
+
 def modinv(n,p):
     return pow(n,p-2,p)
 
@@ -30,6 +51,9 @@ def GCD(x, y):
     while(y): 
         x, y = y, x % y 
     return x
+def LCM (x, y):
+    return (x * y) // GCD(x, y)
+    
 def Divisors(n) : 
     l = []  
     for i in range(1, int(math.sqrt(n) + 1)) :
@@ -40,6 +64,11 @@ def Divisors(n) :
                 l.append(i)
                 l.append(n//i)
     return l
+def isprime(n):
+    for i in range(2, int(math.sqrt(n))+1):
+        if n%i==0:
+            return False
+    return True
 prime=[]
 def SieveOfEratosthenes(n): 
     global prime
@@ -72,20 +101,37 @@ def dfs(n,d,v,c):
  
 """*******************************************************"""
 
-t = inin()
-for _ in range(t):
-    h,c,t = spin()
-    count = 0;i = 0
-    d = abs(h-t)
-    final = h
-
-    while i>=0:
-        if final==t:
-            print(i)
-            break
-        else:
-            if i%2!=0:
-                final -= c
-            else:
-                final += h
-            i+=1
+n = inin()
+l = lin()
+if n==1:
+    print(1,1)
+    print(-l[0])
+    print(1,1)
+    print(0)
+    print(1,1)
+    print(0)
+else:
+    print(1,n)
+    print(' '.join([str(-n*i) for i in l]))
+    print(1,n-1)
+    print(' '.join([str((n-1)*i) for i in l[:n-1]]))
+    print(2,n)
+    print(' '.join([str(0) for i in range(n-2)]+[str((n-1)*l[-1])]))
+# print(1,1)
+# print(-a[0])
+# 
+# b = []; c = []
+# print(3, n)
+# 
+# m = (n-2)+1
+# for i in range(2, n):
+#     b.append((m-1)*a[i])
+#     a[i] = (m-1)*a[i]+ a[i]
+# 
+#     c.append(-a[i])
+# 
+# print(*b)
+# for i in range(1, n):
+#     print(i+1, end=" ")
+# print(2,n)
+# print(*c)

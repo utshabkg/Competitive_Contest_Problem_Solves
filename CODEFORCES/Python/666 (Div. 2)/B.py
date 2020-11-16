@@ -18,7 +18,28 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
-#######################################
+def matrix(n):
+    #matrix input
+    return [list(map(int,input().split()))for i in range(n)]
+
+################################################
+def string2intlist(s):
+    return list(map(int, s))
+
+def calculate_sum(a, N): #sum of a to N
+    # Number of multiples 
+    m = N / a 
+    # sum of first m natural numbers 
+    sum = m * (m + 1) / 2
+    # sum of multiples 
+    ans = a * sum
+    return ans
+def series(N):
+    return (N*(N+1))//2
+
+def count2Dmatrix(i,list):
+    return sum(c.count(i) for c in list)
+
 def modinv(n,p):
     return pow(n,p-2,p)
 
@@ -30,6 +51,9 @@ def GCD(x, y):
     while(y): 
         x, y = y, x % y 
     return x
+def LCM (x, y):
+    return (x * y) // GCD(x, y)
+    
 def Divisors(n) : 
     l = []  
     for i in range(1, int(math.sqrt(n) + 1)) :
@@ -40,6 +64,11 @@ def Divisors(n) :
                 l.append(i)
                 l.append(n//i)
     return l
+def isprime(n):
+    for i in range(2, int(math.sqrt(n))+1):
+        if n%i==0:
+            return False
+    return True
 prime=[]
 def SieveOfEratosthenes(n): 
     global prime
@@ -71,21 +100,31 @@ def dfs(n,d,v,c):
 # d = {}
  
 """*******************************************************"""
-
-t = inin()
-for _ in range(t):
-    h,c,t = spin()
-    count = 0;i = 0
-    d = abs(h-t)
-    final = h
-
-    while i>=0:
-        if final==t:
-            print(i)
-            break
-        else:
-            if i%2!=0:
-                final -= c
-            else:
-                final += h
-            i+=1
+s = stin()
+t = stin()
+c,d = 0,0
+for i in range(len(s)-len(t)+1):
+    d=0
+    for j in range(len(t)):
+        if s[i+j]==t[j]:
+            d+=1
+    # print(c, d)
+    c=max(d,c)
+print(len(t)-c)
+# for i in range(len(t), 0,-1):
+#     # print(t[:i])
+#     if t[:i] in s:
+#         # print(c)
+#         break
+#     else:
+#         c+=1
+#     # print(t[:i], t[:i] in s)
+# for i in range(len(t)):
+#     # print(t[i:])
+#     if t[i:] in s:
+#         # print(d)
+#         break
+#     else:
+#         d+=1
+# # print("ab" in s)
+# print(min(c, d))

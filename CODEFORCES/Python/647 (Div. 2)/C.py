@@ -71,21 +71,3 @@ def dfs(n,d,v,c):
 # d = {}
  
 """*******************************************************"""
-
-t = inin()
-for _ in range(t):
-    h,c,t = spin()
-    count = 0;i = 0
-    d = abs(h-t)
-    final = h
-
-    while i>=0:
-        if final==t:
-            print(i)
-            break
-        else:
-            if i%2!=0:
-                final -= c
-            else:
-                final += h
-            i+=1

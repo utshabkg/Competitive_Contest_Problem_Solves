@@ -18,7 +18,7 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
-#######################################
+############################################
 def modinv(n,p):
     return pow(n,p-2,p)
 
@@ -71,21 +71,76 @@ def dfs(n,d,v,c):
 # d = {}
  
 """*******************************************************"""
+for _ in range(inin()):
+    n = inin()
+    l = [0]*1025
 
-t = inin()
-for _ in range(t):
-    h,c,t = spin()
-    count = 0;i = 0
-    d = abs(h-t)
-    final = h
+    def check(k):
+        for i in range(1, n+1, 1):
+            if not l[i] ^ k:
+                return False
+        return True
 
-    while i>=0:
-        if final==t:
-            print(i)
-            break
-        else:
-            if i%2!=0:
-                final -= c
-            else:
-                final += h
-            i+=1
+    def solve():
+        booler = [False]*1025
+
+        for i in range(1, n+1, 1):
+            l[i] = 
+            booler[l[i]] = True
+        
+        for i in range(1, 1024, 1):
+            if check(k):
+                print(k)
+                return
+        
+        print(-1)
+    
+    solve()
+
+    
+
+    
+
+
+
+
+    
+
+
+# def bin2dec(n): 
+#     return int(n,2)
+
+
+# for _ in range(inin()):
+#     n = inin()
+#     l = lin()
+
+#     new = []
+
+#     m = max(l)
+#     # print(m)
+#     mb = bin(m).replace("0b","")
+#     mblen = len(mb)
+
+#     if l.count(0)>=1:
+#         if len(set(l))==2:
+#             print(m)
+#             continue
+
+#     # print(len(set(l)), l.count(0))
+
+#     k = [0]*(mblen-2)
+#     k.insert(0,1)
+#     k = str("".join(map(str, k)))
+#     # print(k)
+
+#     for i in l:
+#         xor = bin(bin2dec(bin(i).replace("0b","")) ^ bin2dec(k))
+#         new.append(bin2dec(xor.replace("0b","")))
+    
+#     if sorted(l) == sorted(new):
+#         print(bin2dec(k))
+#     else:
+#         print(-1)
+#     # print(type(new.sort()))
+#     # print(l.sort()==new.sort())

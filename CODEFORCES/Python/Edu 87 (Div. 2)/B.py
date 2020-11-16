@@ -5,11 +5,8 @@ for _ in range(t):
 
     # temp1, temp2, temp3 = 0, 0, 0
     l1, l2, l3 = [], [], []
-    c1, c2, c3 = 200000, 200000, 200000
+    c1, c2, c3 = len(s), len(s), len(s)
     for i in range(len(s)):
-        if s.count('1')==0 or s.count('2')==0 or s.count('3')==0:
-            c1 = 0
-            break
         
         # if i==0 and s[i]=='1':
         #     temp1+=1
@@ -30,7 +27,7 @@ for _ in range(t):
         #         temp3+=1
 
         if s[i] == '1':
-            if len(l1)==0:
+            if len(l1)!=1:
                 l1.append(s[i])
             if len(l2)>0:
                     l2.append(s[i])
@@ -39,7 +36,7 @@ for _ in range(t):
             
         
         if s[i] == '2':
-            if len(l2)==0:
+            if len(l2)!=1:
                 l2.append(s[i])
             if len(l1)>0:
                 l1.append(s[i])
@@ -47,7 +44,7 @@ for _ in range(t):
                 l3.append(s[i])
             
         if s[i] == '3':
-            if len(l3)==0:
+            if len(l3)!=1:
                 l3.append(s[i])
             if len(l2)>0:
                     l2.append(s[i])
@@ -103,27 +100,28 @@ for _ in range(t):
         #             if temp2>0:
         #                 temp1 += 1
         #                 l1.append(s[i]+1)
-    
+
+        # print(len(l1), len(l2), len(l3)) 
+        # print(l1, l2, l3)
+
         if l1.count('1')>=1 and l1.count('2')>=1 and l1.count('3')>=1:
-            if c1>len(l1):
-                c1 = len(l1)
+            c1 = min(c1, len(l1))
             l1 = []
 
         if l2.count('1')>=1 and l2.count('2')>=1 and l2.count('3')>=1:
-            if c2>len(l2):
-                c2 = len(l2)
+            c2 = min(c2, len(l2))
             l2 = []
 
         if l3.count('1')>=1 and l3.count('2')>=1 and l3.count('3')>=1:
-            if c3>len(l3):
-                c3 = len(l3)
+            c3 = min(c3, len(l3))
             l3 = []
         
         # print(temp1, temp2, temp3)
-        # print(i, len(l1), len(l2), len(l3)) 
-        # print(l1, l2, l3)
+        
         # print(c1,c2,c3)
-
-    print(min(min(c1, c2), c3))
+    if s.count('1')==0 or s.count('2')==0 or s.count('3')==0:
+            print(0)
+    else:
+        print(min(min(c1, c2), c3))
 
     #12222133333332

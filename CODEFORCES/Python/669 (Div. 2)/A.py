@@ -18,7 +18,14 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
-#######################################
+def matrix(n):
+    #matrix input
+    return [list(map(int,input().split()))for i in range(n)]
+
+################################################
+def count2Dmatrix(i,list):
+    return sum(c.count(i) for c in list)
+
 def modinv(n,p):
     return pow(n,p-2,p)
 
@@ -71,21 +78,63 @@ def dfs(n,d,v,c):
 # d = {}
  
 """*******************************************************"""
+for _ in range(inin()):
+    n = inin()
+    a  = lin()
 
-t = inin()
-for _ in range(t):
-    h,c,t = spin()
-    count = 0;i = 0
-    d = abs(h-t)
-    final = h
-
-    while i>=0:
-        if final==t:
-            print(i)
-            break
+    c0, c1 = a.count(0), a.count(1)
+    if c1<=n//2:
+        print(c0)
+        print(*[0]*c0)
+    else:
+        if c1%2!=0:
+            print(c1-1)
+            print(*[1]*(c1-1))
         else:
-            if i%2!=0:
-                final -= c
-            else:
-                final += h
-            i+=1
+            print(c1)
+            print(*[1]*c1)
+
+
+
+    # even, odd = 0, 0; b = []
+    # for i in range(n):
+    #     if a[i]==1:
+    #         if i%2!=0:
+    #             even+=1
+    #         else:
+    #             odd+=1
+        
+    # if even==odd:
+    #     print(n)
+    #     print(*a)
+    # else:
+    #     # print(n - abs(even-odd), 2)
+    #     j = abs(even-odd)
+    #     if even>odd:
+    #         for i in range(n):
+    #             if j==0:
+    #                 b.append(a[i])
+    #                 continue
+    #             if a[i]==1:
+    #                 if i%2==0:
+    #                     b.append(a[i])
+    #                     j -= 1
+    #             else:
+    #                 b.append(a[i])
+    #     else:
+    #         for i in range(n):
+    #             if j==0:
+    #                 b.append(a[i])
+    #                 continue
+    #             if a[i]==1:
+    #                 if i%2!=0:
+    #                     b.append(a[i])
+    #                     j -= 1
+    #             else:
+    #                 b.append(a[i])
+    #             # j -= 1
+    #     print(len(b))
+    #     print(*b)
+
+
+

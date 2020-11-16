@@ -18,7 +18,14 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
-#######################################
+def matrix(n):
+    #matrix input
+    return [list(map(int,input().split()))for i in range(n)]
+
+################################################
+def count2Dmatrix(i,list):
+    return sum(c.count(i) for c in list)
+
 def modinv(n,p):
     return pow(n,p-2,p)
 
@@ -30,7 +37,10 @@ def GCD(x, y):
     while(y): 
         x, y = y, x % y 
     return x
-def Divisors(n) : 
+def LCM (x, y):
+    return (x * y) // GCD(x, y)
+
+def Divisors(n): 
     l = []  
     for i in range(1, int(math.sqrt(n) + 1)) :
         if (n % i == 0) : 
@@ -71,21 +81,29 @@ def dfs(n,d,v,c):
 # d = {}
  
 """*******************************************************"""
+for _ in range(inin()):
+    l, r, m = spin()
+    
+    if m>=l and m>=r:
+        rem1 = m%l
+        rem2 = m%r
 
-t = inin()
-for _ in range(t):
-    h,c,t = spin()
-    count = 0;i = 0
-    d = abs(h-t)
-    final = h
+        n1 = (m + l - (l+rem1)) / l
+        n2 = (m + (r-rem2) - r) / r
+        if n1==int(n1) and n1>0:
+            print(l, l+rem1, l)
+        elif n2==int(n2) and n2>0:
+            print(r-rem2, r, r-rem2)
+    
+    else:
+        rem1 = l - m
+        rem2 = r - m
 
-    while i>=0:
-        if final==t:
-            print(i)
-            break
-        else:
-            if i%2!=0:
-                final -= c
-            else:
-                final += h
-            i+=1
+        n1 = (m - l + (l+rem1)) / l
+        n2 = (m - (r-rem2) + r) / r
+        if n1==int(n1) and n1>0:
+            print(l, l, l+rem1)
+        elif n2==int(n2) and n2>0:
+            print(r-rem2, r-rem2, r)
+        
+    # print(n1, n2)

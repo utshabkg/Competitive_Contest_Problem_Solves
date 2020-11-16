@@ -18,7 +18,14 @@ def spin():
     return map(int,stin().split())
 def lin():                           #takes array as input
     return list(map(int,stin().split()))
-#######################################
+def matrix(n):
+    #matrix input
+    return [list(map(int,input().split()))for i in range(n)]
+
+################################################
+def count2Dmatrix(i,list):
+    return sum(c.count(i) for c in list)
+
 def modinv(n,p):
     return pow(n,p-2,p)
 
@@ -72,20 +79,36 @@ def dfs(n,d,v,c):
  
 """*******************************************************"""
 
-t = inin()
-for _ in range(t):
-    h,c,t = spin()
-    count = 0;i = 0
-    d = abs(h-t)
-    final = h
+for _ in range(inin()):
+    n = inin()
+    A = lin()
 
-    while i>=0:
-        if final==t:
-            print(i)
-            break
-        else:
-            if i%2!=0:
-                final -= c
-            else:
-                final += h
-            i+=1
+    A.sort()
+    x=A[n-5]*A[n-4]*A[n-3]*A[n-2]*A[n-1]
+    y=A[0]*A[1]*A[n-3]*A[n-2]*A[n-1]
+    z=A[0]*A[1]*A[2]*A[3]*A[n-1]
+
+    print(max(x,y,z))
+
+    # n, p = [], []; m = 1
+    # for i in a:
+    #     if i<0:
+    #         n.append(i)
+    #     else:
+    #         p.append(i)
+
+    # a.sort();n.sort();p.sort()[::-1]
+    # l = 0; r = len(a)-1; flag = 0
+
+    # for i in range(5):
+
+    #     temp = (abs(a[l]), abs(a[r]))
+            
+    #     if temp < 0:
+    #         if c==0:
+    #             if len(n)>=2:
+    #                 m *= temp
+    #         elif c==2:
+    #             if len(n)>=4:
+    #                 m *= temp
+    #     flag = 1

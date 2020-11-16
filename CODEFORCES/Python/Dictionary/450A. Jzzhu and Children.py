@@ -8,7 +8,7 @@ pos = {}
 
 for li in range(n):
     pos[li] = l[li]
-    # print(pos)
+    print(pos)
 
 j = 0
 c = []
