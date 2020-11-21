@@ -27,7 +27,14 @@ def count2Dmatrix(i,list):
     return sum(c.count(i) for c in list)
 
 def modinv(n,p):
-    return pow(n,p-2,p)
+    return pow(n, p - 2, p)
+    
+def nCr(n, r):
+    i = 1
+    while i < r:
+        n *= (n - i)
+        i += 1
+    return n // math.factorial(r)
 
 def GCD(x, y): 
     x=abs(x)
@@ -81,16 +88,21 @@ def dfs(n,d,v,c):
 
 for _ in range(inin()):
     n = inin()
+    a = lin()
 
-    i, count = 1, 0
-    temp = 0
+    b = [0]*32;pairs = 0
 
-    while 1:
-        temp = 2**i - 1
-        if n - temp * (2**(i-1)) < 0:
-            print(count)
-            break
-        else:
-            n -= temp * (2**(i-1))
-            count += 1
-        i += 1
+    for i in range(n):
+        # print(bin(a[i]))
+        b[len(bin(a[i])) - 2] += 1
+
+    b = list(filter(lambda a: a != 0, b))
+    # print(b)
+
+    for i in b:
+        if i > 1:
+            pairs += nCr(i, 2)
+            
+    print(pairs)
+
+    
