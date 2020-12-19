@@ -199,9 +199,9 @@ def modInverse(a, m):
 
 """*******************************************************"""
 for _ in range(inin()):
+    n = inin()
     a = lin()
 
-    if min(a) >= sum(a) // 9 and sum(a) % 9 == 0:
-        print("YES")
-    else:
-        print("NO")
+    for i in range(n):
+        ans = math.floor(math.log2(a[i]))
+        print(2**ans, end=' ')
