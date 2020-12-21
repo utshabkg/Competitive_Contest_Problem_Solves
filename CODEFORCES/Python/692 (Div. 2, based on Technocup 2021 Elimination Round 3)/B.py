@@ -194,40 +194,17 @@ def modInverse(a, m):
 """*******************************************************"""
 for _ in range(inin()):
     n = inin()
-
-    s = list(str(n))
-    s = sorted(set(s))
-    # print(s)
-
-    # nondivisors = []
-
-    flag = 0
-    for i in range(0, len(s)):
-        if int(s[i]) != 0:
-            if n % int(s[i]) == 0:
-                if i == len(s) - 1:
-                    print(n)
-            else:
-                flag = -1
+    
+    while True:
+        t = 1
+        s = list(str(n))
+        # s = sorted(set(s))
+        # print(s)
+        for i in range(len(s)):
+            if s[i] != '0' and n % int(s[i]) != 0:
+                t = 0
+                n += 1
                 break
-
-    # print(flag)
-
-    if flag == -1:
-        t = 0
-        for j in range(n + 1, 10 ** 18 + 1, 1):
-            # print(j)
-            s = list(str(j))
-            s = sorted(set(s))
-            # print(s)
-            for i in range (len(s)):
-                if int(s[i]) != 0:
-                    if j % int(s[i]) == 0:
-                        if i == len(s) - 1:
-                            print(j)
-                            t = 1
-                    else:
-                        break
-            if t == 1:
-                break            
-
+        if t == 1:
+            print(n)
+            break
