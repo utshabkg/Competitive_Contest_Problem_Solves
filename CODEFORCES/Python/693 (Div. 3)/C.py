@@ -196,20 +196,25 @@ for _ in range(inin()):
     n = inin()
     a = lin()
 
-    m = 0
+    # m = 0
+    dp = [0]*n
 
-    for i in range(n):
-        chip = a[i]
-        j = i
-        s = a[j]
-        j += chip
-        while j < n:
-            s += a[j]
-            chip = a[j]
-            j += chip
+    for i in range(n-1, -1, -1):
+        dp[i] = a[i]
+        chip = i + a[i]
+        if chip < n:
+            dp[i] += dp[chip]
+        # chip = a[i]
+        # j = i
+        # s = a[j]
+        # j += chip
+        # while j < n:
+        #     s += a[j]
+        #     chip = a[j]
+        #     j += chip
             
-        m = max(m, s)
-        # print(m, s)
+        # m = max(m, s)
+        # # print(m, s)
     
-    print(m)
+    print(max(dp))
 
