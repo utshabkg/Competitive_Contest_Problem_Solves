@@ -199,35 +199,16 @@ def modInverse(a, m):
 
 """*******************************************************"""
 for _ in range(inin()):
-    s = stin()
-    t = stin()
-    if s[0] != t[0] or s[-1] != t[-1]:
+    a = input()
+    b = input()
+    p = 0
+    for i in range(1, 20 ** 2):
+        if a * i == b * (len(a * i) // len(b)):
+            print(a * i)
+            p = 1
+            break
+    if p == 0:
         print(-1)
-    else:
-        if len(set(list(s))) == 1 and len(set(list(t))) == 1:
-            print(t[0] * LCM(len(s), len(t)))
-        else:
-            s = list(s)
-            t = list(t)
-            flag, i = 0, 0
-            while i < len(s):
-                for j in range(len(t)):
-                    if i+j<len(s) and j<len(t):
-                        if s[i+j] == t[j]:
-                            flag = 0
-                        else:
-                            flag = -1
-                            break
-                if flag == 0:
-                    i += len(t)
-                else:
-                    flag = -1
-                    break
-            if flag == -1:
-                print(-1)
-            else:
-                print("".join(t * LCM(len(t), len(s)//2)))
-                # print(LCM(len(t), len(s)))
 
 
 
