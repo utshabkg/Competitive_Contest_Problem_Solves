@@ -195,6 +195,18 @@ def modInverse(a, m):
 for _ in range(inin()):
     n, q = spin()
     a = lin()
+    b = list(set(a))
     for i in range(q):
         l, r = spin()
-        print(n+1)
+
+        temp = a[l - 1]
+        if temp in b:
+            if a.count(temp)==1:
+                b.remove(temp)
+            # print(b)
+            a[l - 1] = r
+        
+        if r not in b:
+            b.append(r)
+        # print(b)
+        print(len(b)+1)
