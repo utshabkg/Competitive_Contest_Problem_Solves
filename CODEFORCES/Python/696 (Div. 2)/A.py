@@ -192,100 +192,37 @@ def modInverse(a, m):
 
 
 """*******************************************************"""
-# b = '1'*100000
-# for _ in range(1000):
-#     n = 100000
 for _ in range(inin()):
     n = inin()
     b = stin()
 
-    a = '1'
-    temp = int(a[0]) + int(b[0])
-    
-    for i in range(1, n, 5):
-        if i%5==1:
+    a = 1
+
+    temp = 0
+    for i in range(n):
+        if i == 0:
+            print(1, end='')
+            a = 1
+
+        else:
             if temp == 2:
-                if b[i]=='1':
-                    a += '0'
+                if b[i] == '1':
+                    print(0, end='')
+                    a = 0
                 else:
-                    a += '1'
+                    print(1, end='')
+                    a = 1
             elif temp == 1:
                 if b[i] == '0':
-                    a += '0'
+                    print(0, end='')
+                    a = 0
                 else:
-                    a += '1'
+                    print(1, end='')
+                    a = 1
             elif temp == 0:
-                a+='1'
-            temp = int(a[i]) + int(b[i])
-        
-        i += 1
-        if i < n:
-            if i % 5 == 2:
-                if temp == 2:
-                    if b[i] == '1':
-                        a += '0'
-                    else:
-                        a += '1'
-                elif temp == 1:
-                    if b[i] == '0':
-                        a += '0'
-                    else:
-                        a += '1'
-                elif temp == 0:
-                    a += '1'
-                temp = int(a[i]) + int(b[i])
-        
-        i += 1
-        if i < n:
-            if i % 5 == 3:
-                if temp == 2:
-                    if b[i] == '1':
-                        a += '0'
-                    else:
-                        a += '1'
-                elif temp == 1:
-                    if b[i] == '0':
-                        a += '0'
-                    else:
-                        a += '1'
-                elif temp == 0:
-                    a += '1'
-                temp = int(a[i]) + int(b[i])
-        
-        i += 1
-        if i < n:
-            if i % 5 == 4:
-                if temp == 2:
-                    if b[i] == '1':
-                        a += '0'
-                    else:
-                        a += '1'
-                elif temp == 1:
-                    if b[i] == '0':
-                        a += '0'
-                    else:
-                        a += '1'
-                elif temp == 0:
-                    a += '1'
-                temp = int(a[i]) + int(b[i])
-
-        i += 1
-        if i < n:
-            if i % 5 == 0:
-                if temp == 2:
-                    if b[i] == '1':
-                        a += '0'
-                    else:
-                        a += '1'
-                elif temp == 1:
-                    if b[i] == '0':
-                        a += '0'
-                    else:
-                        a += '1'
-                elif temp == 0:
-                    a += '1'
-                temp = int(a[i]) + int(b[i])
-
+                print(1, end='')
+                a = 1
+        temp = a + int(b[i])
         # print(i, temp)
-    
-    print(a)
+
+    print()
