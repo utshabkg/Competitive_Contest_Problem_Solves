@@ -209,10 +209,16 @@ for _ in range(inin()):
         s = sum(a[0:i])
         # print(a[i], s, a[i] / s)
         if (a[i] / s) > (k / 100):
-            temp = a[i] / (k / 100) - s
-            if temp >= add:
+            # print(a[i]/s, k/100)
+            if a[i] / (a[i] // (k / 100)) <= k / 100:
+                temp = math.floor((a[i] / (k / 100)) - s)
+            else:
+                temp = math.ceil((a[i] / (k / 100)) - s)
+            if math.ceil(a[i] / (k / 100)) > s:
                add += temp
                a[0] = a0 + temp
+               a0 = a[0]
+            #    print(temp, add)
         # print(a)
     
     print(int(add))
