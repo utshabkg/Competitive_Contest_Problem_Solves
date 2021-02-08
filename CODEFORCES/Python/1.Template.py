@@ -95,7 +95,10 @@ def isprime(n):
             return False
     return True
 
+
 prime = []
+
+
 def SieveOfEratosthenes(n):
     global prime
     prime = [True for i in range(n+1)]
@@ -189,6 +192,9 @@ def modInverse(a, m):
 
 
 """*******************************************************"""
+# Round Name: CF 699
+# starting time
+# start = time.time()
 for _ in range(inin()):
     n = inin()
     a = lin()
