@@ -196,6 +196,13 @@ def modInverse(a, m):
 # starting time
 # start = time.time()
 
+def change(prev):
+    if prev=='2':
+        return '5'
+    if prev=='5':
+        return '2'
+    return prev
+
 for _ in range(inin()):
     h, m = spin()
     hh, mm = map(str, stin().split(':'))
@@ -212,12 +219,13 @@ for _ in range(inin()):
             if len(str(j))==1:
                 j = '0' + str(j)
             moments.append(f'{i}:{j}')
-    print(moments)
+    # print(moments)
 
     rh, rm = 0, 0; nothing = 1
     for i in range(len(moments)):
-        if int(hh) <= int(moments[i][:2]) and h > int(moments[i][4] + moments[i][3]):
-            if (int(hh) < int(moments[i][:2]) or (int(hh) == int(moments[i][:2]) and int(mm) <= int(moments[i][-2:]))) and (m > int(moments[i][1] + moments[i][0])):
+        
+        if int(hh) <= int(moments[i][:2]) and h > int(change(moments[i][4]) + change(moments[i][3])):
+            if (int(hh) < int(moments[i][:2]) and m > int(change(moments[i][1]) + change(moments[i][0]))) or (int(hh) == int(moments[i][:2]) and int(mm) <= int(moments[i][-2:]) and (m > int(change(moments[i][1]) + change(moments[i][0])))):
                 rh = str(moments[i][:2])
                 rm = str(moments[i][-2:])
                 nothing = 0
