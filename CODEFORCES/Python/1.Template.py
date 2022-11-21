@@ -20,7 +20,7 @@ def stin():
     return input()
 
 
-def spin():
+def spin():  # take inputs with space. e.g. n, m = spin()
     return map(int, stin().split())
 
 

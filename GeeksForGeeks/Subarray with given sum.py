@@ -4,32 +4,22 @@
 class Solution:
     def subArraySum(self, arr, n, s):
         # Write your code here
+        start = 0
         sub = []
-
+        flag = 0
+        temp = 0
         for i in range(n):
-            if len(sub)==2:
+            temp += arr[i]
+            while(temp > s):
+                temp -= arr[start]
+                start += 1
+            if temp == s and s!=0:
+                sub.extend([start + 1, i + 1])
+                flag = 1
                 break
-            temp = arr[i]
-            if temp == s:
-                sub.append(i + 1)
-                sub.append(i + 1)
-                break
-
-            for j in range(i+1, n):
-                temp += arr[j]
-                if temp == s:
-                    sub.append(i + 1)
-                    sub.append(j + 1)
-                elif temp > s:
-                    break
-                else:
-                    pass
-
-        # print(sub)
-        if len(sub) == 2:
-            return sub
-        else:
-            return [-1]
+        if flag == 0:
+            sub.append(-1)
+        return sub
 
 
 # {
